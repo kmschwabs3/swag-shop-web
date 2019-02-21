@@ -1,13 +1,17 @@
 import 'whatwg-fetch'; //used right away no need for var
-console.log('hello');
 
+//function to get the products from the API on the server
 class HttpService {
 	getProducts = () => {
-		fetch('http://localhost:3004/product')
-		.then(response => {
-			console.log(response.json());
-		})
+		var promise = new Promise((resolve,reject) => {
+			fetch('http://localhost:3004/product')
+			.then(response => {
+				resolve(response.json());
+			})
+		});
+		return promise;	
 	}
 }
 
 export default HttpService;
+//prints to the console
