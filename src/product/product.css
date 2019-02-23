@@ -1,8 +1,19 @@
 .product {
-	width: 20rem;
+	max-width: 15rem;
 	color: black;
+	margin: 10px;
 }
 
 .product img {
 	max-height: 15rem;
+}
+
+h4.productTitle {
+	font-size: 25px;
+}
+
+p.priceVal {
+	font-size: 18px;
+	font-weight: 700;
+	color: #0061FFFF;
 }
