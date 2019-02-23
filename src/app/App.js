@@ -11,32 +11,45 @@ class App extends Component {
 
   constructor (props){
     super (props);
+
+    this.state = {products:[]};
+
     //binds to the function below
     this.loadData = this.loadData.bind(this);
+    this.productList = this.productList.bind(this);
     this.loadData();
   }
 
   loadData = () => {
+    var self = this;
     http.getProducts().then(products => {
-      console.log(products);
+      self.setState({products})
+      //console.log(products);
     }, err => {
 
     });
+  }
+
+  productList = () => {
+    const list = this.state.products.map((product) => 
+      <div className="col-sm-4" key={product._id}>
+        <Product title={product.title} price={product.price}/>
+      </div>
+    );
+    return (list);
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          {/*<img src={logo} className="App-logo" alt="logo" />*/}
           <p>
             Welcome to the Swag Shop!
           </p>
           <div className="container App-main">
-              <div className= "row">
-                <Product className="col-sm-4" price="4.23" title="Teddy Bear" imgUrl="https://www.buildabear.com/dw/image/v2/BBNG_PRD/on/demandware.static/-/Sites-buildabear-master/default/dwcda44071/27423x.jpg?sw=600&sh=600&sm=fit"/>
-                <Product className="col-sm-4" price="4.23" title="Teddy Bear" imgUrl="https://www.buildabear.com/dw/image/v2/BBNG_PRD/on/demandware.static/-/Sites-buildabear-master/default/dwcda44071/27423x.jpg?sw=600&sh=600&sm=fit"/>
-                <Product className="col-sm-4" price="4.23" title="Teddy Bear" imgUrl="https://www.buildabear.com/dw/image/v2/BBNG_PRD/on/demandware.static/-/Sites-buildabear-master/default/dwcda44071/27423x.jpg?sw=600&sh=600&sm=fit"/>
+              <div className= "row"> 
+                {this.productList()}
               </div> 
           </div>
         </header>
