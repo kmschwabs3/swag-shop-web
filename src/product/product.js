@@ -8,8 +8,8 @@ class Product extends Component {
 				{/*<img className="card-img-top" src={this.props.imgUrl}alt="Product"></img>*/}
 				<div class="card-body">
 					<div className= "card-block">
-						<h4 className="card-title">{this.props.title}</h4>
-						<p className="card-text">Price: $ {this.props.price}</p>
+						<h4 className="card-title productTitle">{this.props.title}</h4>
+						<p className="card-text priceVal">Price: $ {this.props.price}</p>
 						<a href="https://www.google.com" className="btn btn-primary">Add to Wishlist</a>
 					</div>
 				</div>
