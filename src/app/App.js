@@ -38,7 +38,7 @@ class App extends Component {
   productList = () => {
     const list = this.state.products.map((product) => 
       <div className="col-sm-4" key={product._id}>
-        <Product title={product.title} price={product.price}/>
+        <Product product={product}/>
       </div>
     );
     return (list);
@@ -48,9 +48,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/*<img src={logo} className="App-logo" alt="logo" />*/}
           <p>
-            Welcome to the Swag Shop!
+            Welcome to the Trinket Shop!
           </p>
           <div className="container-fluid App-main">
               <div className= "row">
